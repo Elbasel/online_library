@@ -204,7 +204,7 @@ function toggleFinish(e) {
 } 
 
 
-const MAX_TEXT_LENGTH = 20
+const MAX_TEXT_LENGTH = 30
 
 const booksArea = document.querySelector('#books')
 const addBookButton = document.querySelector('#add-button')
