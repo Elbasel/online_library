@@ -231,6 +231,15 @@ addBookButton.addEventListener('click', () => {
 })
 
 
+formCancelButton.addEventListener('click', () => {
+    formContainer.style.visibility = 'hidden'
+    bookNameInput.value = ''
+    authorInput.value = ''
+    pagesInput.value = ''
+})
+
+
+// Cancel form submission shortcuts
 document.querySelector('main').addEventListener('click', () => {
     formContainer.style.visibility = 'hidden'
     bookNameInput.value = ''
@@ -238,14 +247,17 @@ document.querySelector('main').addEventListener('click', () => {
     pagesInput.value = ''
 })
 
-
-
-formCancelButton.addEventListener('click', () => {
-    formContainer.style.visibility = 'hidden'
-    bookNameInput.value = ''
-    authorInput.value = ''
-    pagesInput.value = ''
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        formContainer.style.visibility = 'hidden'
+        bookNameInput.value = ''
+        authorInput.value = ''
+        pagesInput.value = ''
+    }
 })
+// ======
+
+
 form.addEventListener('submit', addBook)
 
 bookNameInput.addEventListener('input', validateBookNameLength)
