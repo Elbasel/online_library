@@ -230,6 +230,16 @@ addBookButton.addEventListener('click', () => {
     bookNameInput.focus()
 })
 
+
+document.querySelector('main').addEventListener('click', () => {
+    formContainer.style.visibility = 'hidden'
+    bookNameInput.value = ''
+    authorInput.value = ''
+    pagesInput.value = ''
+})
+
+
+
 formCancelButton.addEventListener('click', () => {
     formContainer.style.visibility = 'hidden'
     bookNameInput.value = ''
@@ -257,19 +267,19 @@ for (let i = 0; i < library.length; i++) {
 Book.prototype.bookCounter = maxId + 1;
 
 //Testing
-// new Book('The Power Of Now 1', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 2', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 3', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 4', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 5', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 6', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 7', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 8', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 9', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 10', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 11', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 12', 'Eckhart Tolle', 230)
-// new Book('The Power Of Now 13', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 1', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 2', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 3', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 4', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 5', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 6', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 7', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 8', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 9', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 10', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 11', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 12', 'Eckhart Tolle', 230)
+new Book('The Power Of Now 13', 'Eckhart Tolle', 230)
 
 library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id, elem.finished))
 
