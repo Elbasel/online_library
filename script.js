@@ -8,7 +8,8 @@ function Book (title, author, pages) {
     library.push(this)
 }
 
-Book.prototype.bookCounter = 0
+
+
 
 function removeBook (e) {
     booksArea.innerHTML = ''
@@ -96,7 +97,6 @@ function appendBook (title, author, pages, id, finished) {
 
 function addBook (e) {
     e.preventDefault()
-    console.log(e)
 
     if(!areValidInputs()) {
         return
@@ -199,6 +199,8 @@ function toggleFinish(e) {
         }
     }
 
+    localStorage.setItem('library', JSON.stringify(library))
+
 } 
 
 
@@ -222,6 +224,9 @@ const pagesCountError = document.querySelector('#pages-count-error')
 
 addBookButton.addEventListener('click', () => {
     formContainer.style.visibility = 'visible'
+    bookNameInput.value = ''
+    authorInput.value = ''
+    pagesInput.value = ''
     bookNameInput.focus()
 })
 
@@ -240,6 +245,16 @@ pagesInput.addEventListener('input', validatePagesCount)
 
 
 let library = JSON.parse(localStorage.getItem('library')) ?? []
+
+let maxId = 0;
+
+for (let i = 0; i < library.length; i++) {
+    if (library[i].id > maxId) {
+        maxId = library[i].id
+    }
+}
+
+Book.prototype.bookCounter = maxId + 1;
 
 library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id, elem.finished))
 
