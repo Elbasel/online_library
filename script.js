@@ -256,7 +256,20 @@ for (let i = 0; i < library.length; i++) {
 
 Book.prototype.bookCounter = maxId + 1;
 
-
+//Testing
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
+// new Book('The Power Of Now', 'Eckhart Tolle', 230)
 
 library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id, elem.finished))
 
