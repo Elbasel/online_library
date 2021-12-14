@@ -2,22 +2,25 @@ function Book (title, author, pages) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.finished = false;
+    this.finished = false
+
     this.id = Book.prototype.bookCounter++
     library.push(this)
 }
 
-Book.prototype.bookCounter = 0;
+Book.prototype.bookCounter = 0
 
 function removeBook (e) {
-    // debugger
-    booksArea.innerHTML = '';
+    booksArea.innerHTML = ''
     library = library.filter(elem => elem.id !== +e.target.id.split('-')[1])
-    library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id))
+    library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id, elem.finished))
+
+    localStorage.setItem('library', JSON.stringify(library))
+
 }
 
 
-function appendBook (title, author, pages, id) {
+function appendBook (title, author, pages, id, finished) {
     const bookDiv = document.createElement('div') 
     bookDiv.setAttribute('id', `book-${id}`)
     bookDiv.classList.add('book')
@@ -48,7 +51,16 @@ function appendBook (title, author, pages, id) {
     finishedDiv.classList.add('finished-div')
 
     const finishedButton = document.createElement('button')
-    finishedButton.textContent = 'Finished'
+    if (finished) {
+        finishedButton.classList.add('finished')
+        finishedButton.textContent = 'Finished'
+    }
+    else {
+        finishedButton.classList.add('not-finished')
+        finishedButton.textContent = 'Not Finished'
+    }
+    finishedButton.setAttribute('id', `finish-${id}`)
+    finishedButton.addEventListener('click', toggleFinish)
     finishedButton.classList.add('finished-button')
 
     finishedDiv.appendChild(finishedButton)
@@ -56,7 +68,7 @@ function appendBook (title, author, pages, id) {
 
     // Author
     const authorDiv = document.createElement('div')
-    authorDiv.innerHTML = 'Author: &nbsp;'
+    authorDiv.innerHTML = 'Author: &nbsp'
     authorDiv.classList.add('author')
 
     const authorName = document.createElement('span')
@@ -81,9 +93,154 @@ function appendBook (title, author, pages, id) {
     booksArea.appendChild(bookDiv)
 }
 
-let library = []
+
+function addBook (e) {
+    e.preventDefault()
+    console.log(e)
+
+    if(!areValidInputs()) {
+        return
+    }
+
+    const newBook = new Book(bookNameInput.value, authorInput.value, pagesInput.value)
+    appendBook(newBook.title, newBook.author, newBook.pages, newBook.id, newBook.finished)
+    formContainer.style.visibility = 'hidden'
+
+    localStorage.setItem('library', JSON.stringify(library))
+
+    
+}
+
+
+
+
+function areValidInputs() {
+    const bookName = bookNameInput.value
+    const authorName = authorInput.value
+    const pagesCount = pagesInput.value
+
+    if (bookName.length > MAX_TEXT_LENGTH) return
+
+    if (authorName.length > MAX_TEXT_LENGTH) return
+
+    if (isNaN(pagesCount)) return
+
+    return true
+
+}
+
+
+
+function validateAuthorNameLength(e) {
+    const length = e.target.value.length
+
+    if (length > MAX_TEXT_LENGTH) {
+        authorNameError.textContent =  `Author Name Can\'t be more than ${MAX_TEXT_LENGTH} characters`
+    }
+    else {
+        authorNameError.innerHTML = '&nbsp'
+    }
+}
+
+
+function validateBookNameLength (e) {
+    const length = e.target.value.length
+    if (length > MAX_TEXT_LENGTH) {
+        bookNameError.textContent = `Book name can\'t be more than ${MAX_TEXT_LENGTH} characters`
+    }
+    else {
+        bookNameError.innerHTML = '&nbsp'
+    }
+}
+
+
+
+
+function validatePagesCount (e) {
+    if (isNaN(e.target.value)) {
+        pagesCountError.textContent = 'Must be a number'
+    }
+    else {
+        pagesCountError.innerHTML = '&nbsp'
+    }
+}
+
+
+function toggleFinish(e) {
+    const bookId = e.target.id.split('-')[1]
+    const finishedStatus = e.target.textContent
+
+    let newStatus
+    let newStatusText = ''
+    let newStatusClass = ''
+    
+    if (finishedStatus === 'Finished') {
+        
+        newStatus = false
+        newStatusText = 'Not Finished'
+    }
+    else {
+        newStatus = true
+        newStatusText = 'Finished'
+
+    }
+
+    e.target.classList.toggle('finished')
+    e.target.classList.toggle('not-finished')
+
+
+    e.target.textContent = newStatusText
+    
+
+
+    for (const book of library) {
+        if (book.id === +bookId) {
+            book.finished = newStatus
+        }
+    }
+
+} 
+
+
+const MAX_TEXT_LENGTH = 20
 
 const booksArea = document.querySelector('#books')
+const addBookButton = document.querySelector('#add-button')
 
-thePowerOfNow = new Book('The Power Of Now', 'Eckhart Tolle', 250)
-library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id))
+const formContainer = document.querySelector('#form-container')
+const form = document.querySelector('#add-book-form')
+const formAddButton = document.querySelector('#form-add-button')
+const formCancelButton = document.querySelector('#form-cancel-button')
+
+const bookNameInput = document.querySelector('#book-name-input')
+const authorInput = document.querySelector('#author-input')
+const pagesInput = document.querySelector('#pages-input')
+
+const bookNameError = document.querySelector('#book-name-error')
+const authorNameError = document.querySelector('#author-name-error')
+const pagesCountError = document.querySelector('#pages-count-error')
+
+addBookButton.addEventListener('click', () => {
+    formContainer.style.visibility = 'visible'
+    bookNameInput.focus()
+})
+
+formCancelButton.addEventListener('click', () => {
+    formContainer.style.visibility = 'hidden'
+    bookNameInput.value = ''
+    authorInput.value = ''
+    pagesInput.value = ''
+})
+form.addEventListener('submit', addBook)
+
+bookNameInput.addEventListener('input', validateBookNameLength)
+authorInput.addEventListener('input', validateAuthorNameLength)
+pagesInput.addEventListener('input', validatePagesCount)
+
+
+
+let library = JSON.parse(localStorage.getItem('library')) ?? []
+
+library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id, elem.finished))
+
+
