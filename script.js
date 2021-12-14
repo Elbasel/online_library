@@ -256,6 +256,8 @@ for (let i = 0; i < library.length; i++) {
 
 Book.prototype.bookCounter = maxId + 1;
 
+
+
 library.forEach(elem => appendBook(elem.title, elem.author, elem.pages, elem.id, elem.finished))
 
 
