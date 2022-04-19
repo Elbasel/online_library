@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <title>Online Library</title>
 
     <link rel="stylesheet" href="styles.css">
-
     <script defer src="script.js"></script>
-
 </head>
-
 <body>
     <header>
-        <div id="header-left">
-
-        </div>
-        <div id="header-center">
-            <h1>Your Books</h1>
-        </div>
-        <div id="header-right">
-            <button id="add-button">+</button>
-            <div id="form-container">
-                <form id="add-book-form" autocomplete="off">
-
-                    <h1>Add Book</h1>
-                    
-                    <label>Name</label>
-                    <input id="book-name-input" type="text" required>
-                    <p class="error-msg" id="book-name-error">&nbsp;</p>
-
-                    <label>Author</label>
-                    <input id="author-input" type="text" required>
-                    <p class="error-msg" id="author-name-error">&nbsp;</p>
-
-
-                    <label>Pages</label>
-                    <input id="pages-input" type="text" required>
-                    <p class="error-msg" id="pages-count-error">&nbsp;</p>
-
-                    <button type="submit" class="form-button" id="form-add-button">Add</button>
-                    <button type="button" class="form-button" id="form-cancel-button">Cancel</button>
-
-                </form>
-            </div>
+        <h1>Online Library</h1>
+        <div id="header-right-panel">
+            <button>+</button>
         </div>
     </header>
     <main>
-        <div id="books"></div>
+        <div class="book" data-id="0" data-title="The Power Of Now" data-author="Eckhart" data-numOfPages="150">
+            <button>X</button>
+            <h2 class="title">The Power Of Now</h2>
+            <p class="author">By: Eckhart</p>
+            <p class="num-pages">150 Pages</p>
+        </div>
     </main>
-    <footer>Made with ♥ By &nbsp;<i>Elbasel</i></footer>
-</body>
 
+</body>
 </html>
