@@ -97,9 +97,13 @@ header button:active {
 
 main {
     padding: 16px;
+    display: flex;
+    gap: 24px;
 }
 
 .book {
+    position: relative;
+
     width: 220px;
     height: 320px;
     background: #F33139;
@@ -116,16 +120,31 @@ main {
 }
 
 .book button {
-    position: relative;
-    top: 10px;
-    bottom: 0;
-    left: 106px;
+    
+    position: absolute;
 
-    width: 42px;
-    height: 42px;
+    top: -10px;
+    left: 198px;
+
+    width: 32px;
+    height: 32px;
     border-radius: 40%;
     border: none;
 
+    color: white;
+    background-color: #0057c2;
+
+}
+
+
+.book button:hover {
+    transform: scale(1.05);
+    background-color: #0073ff;
+
+}
+
+.book button:active {
+    transform: scale(0.95);
 }
 
 .title {
