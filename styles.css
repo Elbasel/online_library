@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
+
+
 /* ========== START Dark Mode Colors ========== */
 :root {
     --primary: rgb(24, 26, 27);
@@ -201,17 +204,88 @@ form {
     flex-direction: column;
 
     gap: 16px;
-    
+
 
     backdrop-filter: brightness(60%);
     backdrop-filter: blur(2px);
+    background-color: #2b2f31a4;
+
+    position: relative;
+
+
 }
 
+
+#form-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+#form-header button {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border-top-right-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.568);
+    border-right: rgba(255, 255, 255, 0);
+    border-top: white;
+
+    border: none;
+
+
+}
+
+form button p {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-stretch: 100%;
+    font-weight: 700;
+    
+
+    transition: transform .7s ease-in-out;
+
+
+}
+
+form button p:hover {
+    transform: rotate(270deg) scale(0.95);
+}
+
+form button:active {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
 img {
-    z-index: 1;
+    /* z-index: 1; */
     display: block;
     width: 80%;
     height: 80%;
 
     border-radius: 24px;
 }
+
+form > p {
+    color: red;
+}
+
+
+form input {
+
+}
+
+@keyframes rotate-right {
+    50% {transform: rotate(180deg);}
+  }
