@@ -57,7 +57,7 @@ body {
     background-color: var(--primary);
     border: 1px solid white;
     height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -112,7 +112,7 @@ main {
     background: #F33139;
     border-radius: 20px 16px 12px 32px;
     background-image: linear-gradient(to right, #D11F2F 48px, #ba0716 50px, transparent 50px);
-    box-shadow:  2px 6px 40px 0px var(--secondary);
+    box-shadow: 2px 6px 40px 0px var(--secondary);
 
     display: flex;
     flex-direction: column;
@@ -123,7 +123,7 @@ main {
 }
 
 .book button {
-    
+
     position: absolute;
 
     top: -10px;
@@ -151,7 +151,7 @@ main {
 }
 
 .title {
-    margin-bottom: auto;    
+    margin-bottom: auto;
     margin-top: 24px;
     font-size: 24px;
 }
@@ -212,6 +212,7 @@ form {
 
     position: relative;
 
+	animation: fadeIn 0.5s ease-in both;
 
 }
 
@@ -251,7 +252,7 @@ form button p {
     color: white;
     font-stretch: 100%;
     font-weight: 700;
-    
+
 
     transition: transform .7s ease-in-out;
 
@@ -277,15 +278,61 @@ img {
     border-radius: 24px;
 }
 
+form h2 {
+    position: absolute;
+    top: 12px;
+    font-size: 32px;
+}
+
 form > p {
-    color: red;
+    opacity: 0.95;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: start;
+    width: 80%;
+    margin-top: 32px;
 }
 
 
 form input {
+    width: 80%;
+    height: 8%;
+    border: 1px solid white;
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    padding: 12px;
+    font-family: sans-serif;
+    font-weight: 550;
+    font-size: 18px;
 
 }
 
-@keyframes rotate-right {
-    50% {transform: rotate(180deg);}
-  }
+form input[type="submit"] {
+    color: #111;    
+    background-color: #cae962;
+    border: 1px solid #cae962;
+    margin-top: 16px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
