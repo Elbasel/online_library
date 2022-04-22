@@ -71,10 +71,19 @@ function getNewId() {
 }
 
 function validateFormInputs() {
-    return true
+    if (domElements.titleInput.value.length > 0 && domElements.titleInput.value.length < 20){
+        return true
+    }
+
+    return false
 }
 
 function formSubmitEventListerner(e) {
+    debugger
+    if (e.key !== 'Enter') {
+        return
+    }
+
     if (validateFormInputs()) {
         addBookToDom(getCurrentInputBook())
         toggleForm()
@@ -104,5 +113,7 @@ const domElements = {
 domElements.addBookButton.addEventListener('click', () => toggleForm())
 domElements.formClosebutton.addEventListener('click', () => toggleForm())
 domElements.formClosebutton.addEventListener('click', e => e.preventDefault())
+domElements.form.addEventListener('keydown', e => e.preventDefault())
 domElements.form.addEventListener('submit', e => e.preventDefault())
 domElements.form.addEventListener('submit', e => formSubmitEventListerner(e))
+domElements.form.addEventListener('keydown', e => formSubmitEventListerner(e))
