@@ -16,7 +16,7 @@
     <header>
         <h1>Online Library</h1>
         <div id="header-right-panel">
-            <button>+</button>
+            <button id="add-book-button">+</button>
         </div>
     </header>
     <div id="img-container" class="container">
@@ -27,16 +27,16 @@
     <div id="form-container" class="container">
         <form>
             <div id="form-header">
-                <button><p>×</p></button>
+                <button id="close-form-button"><p>×</p></button>
             </div>
             <h2>Add a Book</h2>
             <p>Title</p>
             <input id="title-input" type="text" placeholder="Enter book name">
             <p>Author</p>
-            <input id="author-input" type="text">
+            <input id="author-input" type="text" placeholder="Enter author name">
             <p>Number Of Pages</p>
-            <input id="numOfPages-input" type="text">
-            <input type="submit" value="Add">
+            <input id="numOfPages-input" type="text" placeholder="Enter number of pages">
+            <input type="submit" value="Add" id="form-submit-button">
         </form>
     </div>
     <main>

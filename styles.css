@@ -102,6 +102,11 @@ main {
     padding: 16px;
     display: flex;
     gap: 24px;
+    /* justify-content: flex-start;
+    width: fit-content;
+    margin: auto; */
+    padding-left: 5%;
+    flex-wrap: wrap;
 }
 
 .book {
@@ -109,9 +114,9 @@ main {
 
     width: 220px;
     height: 320px;
-    background: #F33139;
+    background: #310c0d;
     border-radius: 20px 16px 12px 32px;
-    background-image: linear-gradient(to right, #D11F2F 48px, #ba0716 50px, transparent 50px);
+    background-image: linear-gradient(to right, #3a1215 48px, #29080b 50px, transparent 50px);
     box-shadow: 2px 6px 40px 0px var(--secondary);
 
     display: flex;
@@ -169,6 +174,7 @@ main {
 
 
 .container {
+
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -180,20 +186,45 @@ main {
     justify-content: center;
     z-index: 1;
 
+    transition: opacity 0.7s;
+
 
 }
 
 
 #form-container {
-    backdrop-filter: brightness(60%);
-    backdrop-filter: blur(2px);
+    display: none;
+    backdrop-filter: brightness(30%)
+
+    /* backdrop-filter: brightness(60%);
+    backdrop-filter: blur(2px); */
+
+    /* backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%); */
+    /* backdrop-filter: saturate(50%) blur(20px)
+    backdrop-filter: hue-rotate(90deg) saturate(30%)
+    backdrop-filter: saturate(30%) */
+
+}
+
+#img-container {
+    display: none;
 }
 
 
+img, form {
+    width: 500px;
+    height: 520px;
+}
+
+img {
+    /* z-index: 1; */
+    display: block;
+ 
+    border-radius: 24px;
+}
+
 form {
-    border: 1px solid white;
-    width: 80%;
-    height: 80%;
+    /* border: 1px solid white; */
 
     border-radius: 24px;
     display: flex;
@@ -206,14 +237,15 @@ form {
     gap: 16px;
 
 
-    backdrop-filter: brightness(60%);
-    backdrop-filter: blur(2px);
-    background-color: #2b2f31a4;
+    /* backdrop-filter: brightness(60%); */
+    /* backdrop-filter: blur(2px); */
+    /* backdrop-filter: drop-shadow(4px 4px 10px blue); */
+
+    background-color: #2b2f3109;
 
     position: relative;
 
 	animation: fadeIn 0.5s ease-in both;
-
 }
 
 
@@ -269,14 +301,7 @@ form button:active {
 }
 
 
-img {
-    /* z-index: 1; */
-    display: block;
-    width: 80%;
-    height: 80%;
 
-    border-radius: 24px;
-}
 
 form h2 {
     position: absolute;
@@ -325,6 +350,7 @@ form input[type="submit"] {
         transform: translate3d(0, 0, 0);
     }
 }
+
 
 
 @keyframes fade {
