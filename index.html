@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
 </head>
+
 <body>
     <header>
         <h1>Online Library</h1>
@@ -16,22 +18,35 @@
             <button>+</button>
         </div>
     </header>
+    <div id="img-container" class="container">
+        <img src="./bg.jpeg">
+
+    </div>
+
+    <div id="form-container" class="container">
+        <form>
+            <p>Title</p>
+            <input type="text">
+        </form>
+    </div>
     <main>
-        <div class="book" data-id="0" data-title="The Power Of Now" data-author="Eckhart" data-numOfPages="150">
-            <button>X</button>
-            <h2 class="title">The Power Of Now</h2>
-            <p class="author">By: Eckhart</p>
-            <p class="num-pages">150 Pages</p>
-        </div>
 
         <div class="book" data-id="0" data-title="The Power Of Now" data-author="Eckhart" data-numOfPages="150">
             <button>X</button>
             <h2 class="title">The Power Of Now</h2>
             <p class="author">By: Eckhart</p>
-            <p class="num-pages">150 Pages</p>
+            <p class="numOfPages">150 Pages</p>
         </div>
-        
+
+        <div class="book" data-id="1" data-title="The Power Of Now" data-author="Eckhart" data-numOfPages="150">
+            <button>X</button>
+            <h2 class="title">The Power Of Now</h2>
+            <p class="author">By: Eckhart</p>
+            <p class="numOfPages">150 Pages</p>
+        </div>
+
     </main>
 
 </body>
+
 </html>

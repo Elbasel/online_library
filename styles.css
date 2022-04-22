@@ -159,8 +159,59 @@ main {
     font-size: 14px;
 }
 
-.num-pages {
+.numOfPages {
     margin-bottom: 24px;
     font-size: 14px;
 }
 
+
+.container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+
+}
+
+
+#form-container {
+    backdrop-filter: brightness(60%);
+    backdrop-filter: blur(2px);
+}
+
+
+form {
+    border: 1px solid white;
+    width: 80%;
+    height: 80%;
+
+    border-radius: 24px;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    gap: 16px;
+    
+
+    backdrop-filter: brightness(60%);
+    backdrop-filter: blur(2px);
+}
+
+img {
+    z-index: 1;
+    display: block;
+    width: 80%;
+    height: 80%;
+
+    border-radius: 24px;
+}
