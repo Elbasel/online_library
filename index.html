@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Online Library</h1>
+        <div id="header-right-panel">
+            <button id="add-book-button">+</button>
+        </div>
+    </header>
+    <div id="img-container" class="container">
+        <img src="./bg.jpeg">
+
+    </div>
+
+    <div id="form-container" class="container">
+        <form>
+            <div id="form-header">
+                <button id="close-form-button"><p>×</p></button>
+            </div>
+            <h2>Add a Book</h2>
+            <p>Title</p>
+            <input id="title-input" type="text" placeholder="Enter book name">
+            <p>Author</p>
+            <input id="author-input" type="text" placeholder="Enter author name">
+            <p>Number Of Pages</p>
+            <input id="numOfPages-input" type="text" placeholder="Enter number of pages">
+            <input type="submit" value="Add" id="form-submit-button">
+        </form>
+    </div>
+    <main>
+
+        <div class="book" data-id="0" data-title="The Power Of Now" data-author="Eckhart" data-numOfPages="150">
+            <button>X</button>
+            <h2 class="title">The Power Of Now</h2>
+            <p class="author">By: Eckhart</p>
+            <p class="numOfPages">150 Pages</p>
+        </div>
+
+        <div class="book" data-id="1" data-title="The Power Of Now" data-author="Eckhart" data-numOfPages="150">
+            <button>X</button>
+            <h2 class="title">The Power Of Now</h2>
+            <p class="author">By: Eckhart</p>
+            <p class="numOfPages">150 Pages</p>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
